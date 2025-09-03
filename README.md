@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Energy Forecasting Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to a project built with purpose — a full-stack energy forecasting dashboard designed to turn raw data into real insights. Whether you're a data enthusiast, energy analyst, or just curious about how AI can power smarter decisions, this app is here to show you what's possible.
 
-## Available Scripts
+## What It Does
 
-In the project directory, you can run:
+This dashboard visualizes time-series energy data and forecasts future consumption using LSTM neural networks. It’s fast, responsive, and built to work seamlessly across devices — from desktops to mobile.
 
-### `npm start`
+- Real-time forecasting with AI/ML (LSTM)
+- Backend API powered by Flask
+- Frontend built in React with a clean, intuitive UI
+- Deployed on Render (backend) and Netlify (frontend)
+- Live integration — no localhost dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Layer      | Tech Used         |
+|------------|-------------------|
+| Frontend   | React, Axios, Netlify |
+| Backend    | Flask, Gunicorn, Render |
+| AI/ML      | LSTM (Keras/TensorFlow) |
+| Deployment | GitHub, CI/CD, Environment Variables |
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repo and run locally:
 
-### `npm run build`
+git clone https://github.com/keerthikaa27/Energy-Forecast.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Frontend Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+cd frontend
+npm install
+npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Backend Setup
 
-### `npm run eject`
+My backend repo - https://github.com/keerthikaa27/energy-forecast-backend.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+cd backend
+pip install -r requirements.txt
+python app.py
+Note: For production, use gunicorn app:app and set environment variables for seamless deployment.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Live Demo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Check out the live version here: https://energyforecast.netlify.app/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributing
 
-## Learn More
+Pull requests are welcome! If you spot a bug, have a feature idea, or want to improve the UX — jump in.
+Fork the repo
+Create your feature branch 
+Commit your changes (git commit -m 'Add something')
+Push to the branch (git push origin main)
+Open a pull request
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
+This project is licensed under the MIT License — feel free to use, modify, and share.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
