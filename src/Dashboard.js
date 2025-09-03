@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { getPrediction } from "./api";
+
 import SmoothTrendArrow from "./SmoothTrendArrow";
 import {
   LineChart,
@@ -17,21 +19,29 @@ const DEFAULT_LEN = 24;
 const MIN_VAL = 0;
 const MAX_VAL = 100000;
 
-export default function Dashboard({ onBack }) {
-  // Bulk‐input mode state
-  const [mode, setMode] = useState("textarea");       // "textarea" or "sliders"
-  const [raw, setRaw] = useState("");                 // CSV/bulk text
-  const [errors, setErrors] = useState([]);           // validation errors
 
-  // Core data & prediction
-  const [values, setValues] = useState(
-    Array(DEFAULT_LEN).fill(1)
-  );
-  const [yesterday, setYesterday] = useState(
-    Array(DEFAULT_LEN).fill(0)
-  );
+export default function Dashboard({ onBack }) {
+  const [mode, setMode] = useState("textarea");
+  const [raw, setRaw] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [values, setValues] = useState(Array(DEFAULT_LEN).fill(1));
+  const [yesterday, setYesterday] = useState(Array(DEFAULT_LEN).fill(0));
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const handlePredict = async () => {
+    setLoading(true);
+    setPrediction(null);
+    try {
+      const prediction = await getPrediction(values);
+      setPrediction(prediction);
+      setErrors([]);
+    } catch (err) {
+      console.error(err);
+      setErrors(["Prediction failed. Check your backend."]);
+    }
+    setLoading(false);
+  };
 
   // Recalc “yesterday” whenever values change
   useEffect(() => {
@@ -68,26 +78,6 @@ export default function Dashboard({ onBack }) {
     const copy = [...values];
     copy[idx] = val;
     setValues(copy);
-  };
-
-  // Prediction API call
-  const handlePredict = async () => {
-    setLoading(true);
-    setPrediction(null);
-    try {
-      const res = await fetch("http://127.0.0.1:5000/predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ values }),
-      });
-      const data = await res.json();
-      setPrediction(data.prediction);
-      setErrors([]);
-    } catch (err) {
-      console.error(err);
-      setErrors(["Prediction failed. Check your backend."]);
-    }
-    setLoading(false);
   };
 
   // Prepare chart data: actual (1–24), yesterday overlay, + predicted (step 25)
