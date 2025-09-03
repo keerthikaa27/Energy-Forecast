@@ -1,4 +1,4 @@
-# Energy Forecasting Dashboard
+# Energy Forecasting Web App
 
 Welcome to a project built with purpose — a full-stack energy forecasting dashboard designed to turn raw data into real insights. Whether you're a data enthusiast, energy analyst, or just curious about how AI can power smarter decisions, this app is here to show you what's possible.
 
