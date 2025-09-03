@@ -8,7 +8,7 @@ function SmoothTrendArrow({ values, prediction }) {
   useEffect(() => {
     if (!values || values.length < 2 || prediction === null) return;
 
-    let start = 0;
+    
     const end = Math.min(values.length, 5); // last 5 + predicted
     const interval = setInterval(() => {
       setArrowPos((prev) => {
